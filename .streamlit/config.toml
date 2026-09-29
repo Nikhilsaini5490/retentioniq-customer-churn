@@ -1,0 +1,23 @@
+[theme]
+base = "light"
+primaryColor = "#117c74"
+backgroundColor = "#f7f9f8"
+secondaryBackgroundColor = "#eaf0ee"
+textColor = "#182a2d"
+linkColor = "#b84736"
+borderColor = "#d3dedb"
+dataframeHeaderBackgroundColor = "#eaf0ee"
+chartCategoricalColors = ["#117c74", "#c95342", "#3f6e9b", "#d29b37", "#506c62", "#9b6b78"]
+font = "'IBM Plex Sans':https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+headingFont = "'IBM Plex Sans':https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&display=swap"
+codeFont = "'IBM Plex Mono':https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
+baseRadius = "6px"
+buttonRadius = "6px"
+showWidgetBorder = true
+showSidebarBorder = true
+
+[theme.sidebar]
+backgroundColor = "#eef3f1"
+secondaryBackgroundColor = "#e3ebe8"
+textColor = "#182a2d"
+primaryColor = "#117c74"

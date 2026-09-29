@@ -1,0 +1,30 @@
+services:
+  dashboard:
+    build: .
+    ports:
+      - "8501:8501"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8501/_stcore/health', timeout=3)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  api:
+    build: .
+    command: ["sh", "-c", "python scripts/train_model.py && uvicorn retentioniq.api:app --host 0.0.0.0 --port 8000"]
+    environment:
+      RETENTIONIQ_MODEL_PATH: /app/artifacts/churn_model.joblib
+    ports:
+      - "8000:8000"
+    volumes:
+      - model_artifacts:/app/artifacts
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  model_artifacts:
